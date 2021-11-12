@@ -222,10 +222,11 @@ void insertElem(struct Node *p,int index,int x)
         for(i=0;i<index-1;i++)
         {
             p=p->next;
+        }
             t->next=p->next;
             p->next=t;
             
-        }
+        
     }
     
 }
@@ -334,12 +335,7 @@ void ConcLL(struct Node *p,struct Node *t)
         p=p->next;
     }
         p->next=t;
-    
-    
-    
-
-    
-    
+       
 }
 
 int main()
