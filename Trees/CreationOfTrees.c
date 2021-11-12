@@ -4,7 +4,7 @@
 
 
 
-//<basic trees>//
+//<basic binary trees>//
 
 
 #include<stdio.h>
