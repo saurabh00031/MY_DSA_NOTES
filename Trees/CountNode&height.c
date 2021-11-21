@@ -1,5 +1,3 @@
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -102,7 +100,7 @@ void TreeC()
     printf("enter left child  of %d\n",p->data);
     scanf("%d",&x);
     
-    if(x!=-1)
+    if(x!=-1)      //left child
     {
      t=(struct Node *)malloc((q.size)*(sizeof(struct Node )));
      t->data=x;
@@ -112,10 +110,10 @@ void TreeC()
      enqueue(&q,t);
     }
       
-    printf("enter right child  of %d\n",p->data);
+    printf("enter right child  of %d\n",p->data);   
     scanf("%d",&x);
     
-    if(x!=-1)
+    if(x!=-1)     //right child
     {
      t=(struct Node *)malloc((q.size)*(sizeof(struct Node )));
      t->data=x;
@@ -162,6 +160,39 @@ void Post_order(struct Node *p)
     
     
 }
+
+int count(struct Node *root)
+{
+   if(root!=NULL) 
+   {
+       return count(root->rt)+count(root->lf)+1;
+   }
+   
+   return 0; 
+}
+
+int height(struct Node *root)
+{
+    int x=0;
+    int y=0;
+    
+   if(root==NULL) 
+   {
+       return 0;
+   }
+   
+   x=height(root->lf);
+   y=height(root->rt);
+   
+   
+   if(x>y)
+         return x+1;
+   else
+         return y+1;
+         
+         
+    
+}
    
     
 int main()
@@ -174,8 +205,9 @@ int main()
       In_order(root);
       printf("\n//........................./Post_Order/...........................//\n");
       Post_order(root);
-   
-   
+      printf("\n//................................................................//\n");
+      printf("\n%d",count(root));
+      printf("\n%d",height(root));
    
     
 }
